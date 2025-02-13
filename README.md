@@ -1,4 +1,4 @@
-# solid
+# SOLID
 
 [GO Design Patterns: An Introduction to SOLID](https://hackernoon.com/go-design-patterns-an-introduction-to-solid)
 
