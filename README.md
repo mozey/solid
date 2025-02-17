@@ -7,12 +7,12 @@ Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and s
 
 ## Examples
 
-Go examples to demonstrate the SOLID principles:
-- [Single responsibility]()
-- [Open closed]()
-- [Liskov substitution]()
-- [Interface segregation]()
-- [Dependency inversion]()
+Go examples to demonstrate the SOLID principles:<sup>[[3]()]</sup>
+- [Single responsibility](https://github.com/mozey/solid/tree/main/a-single-responsibility)
+- [Open closed](https://github.com/mozey/solid/tree/main/b-open-closed)
+- [Liskov substitution](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
+- [Interface segregation](https://github.com/mozey/solid/tree/main/d-interface-segregation)
+- [Dependency inversion](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
 
 
 ## Go is not Object-Oriented
@@ -39,7 +39,7 @@ Go **doesn't have**
 
 ## SOLID Principles
 
-**SOLID** is an acronym that represents five key principles of object-oriented design in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.
+**SOLID** is an acronym that represents five key principles of object-oriented design in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.<sup>[[2]()]</sup>
 
 Here's a breakdown of each principle:
 
@@ -127,19 +127,17 @@ Encourages the creation of reusable code components that can be used in differen
 
 ## References
 
-### [1]
+### [1] Origins
 
 [Origins of SOLID, DDD, & Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)
 
-### [2]
+### [2] SOLID
 
 [Wikipedia: SOLID](https://en.wikipedia.org/wiki/SOLID)
 
-### [3]
+### [3] Go Patterns & Examples
 
 [Go Examples: Introduction to SOLID](https://hackernoon.com/go-design-patterns-an-introduction-to-solid)
-
-### [4]
 
 [Go Time #16: SOLID Go Design](https://changelog.com/gotime/16)
 
