@@ -8,17 +8,17 @@ import (
 
 const RoleAdmin = "admin"
 
-type User struct {
+type UserClaims struct {
 	// role is private, and can't be edited
 	role string
 }
 
-// NewUser constructor
-func NewUser(role string) User {
-	return User{role: role}
+// NewUserClaims constructor
+func NewUserClaims(role string) UserClaims {
+	return UserClaims{role: role}
 }
 
-func (u User) Role() string {
+func (u UserClaims) Role() string {
 	return u.role
 }
 
@@ -34,7 +34,7 @@ func NewEmployeeInfo(name string, salary float64) EmployeeInfo {
 	return EmployeeInfo{Name: name, salary: salary}
 }
 
-func (e EmployeeInfo) Salary(u User) (salary float64, err error) {
+func (e EmployeeInfo) Salary(u UserClaims) (salary float64, err error) {
 	if u.Role() != "admin" {
 		// return errors.Errorf
 	}
@@ -63,16 +63,16 @@ type Employee struct {
 }
 
 type NewEmployeeParams struct {
-	User    User
+	Claims  UserClaims
 	Info    EmployeeInfo
 	Address Address
 }
 
 // NewEmployee constructor func
 func NewEmployee(params NewEmployeeParams) (e Employee, err error) {
-	salary, err := params.Info.Salary(params.User)
+	salary, err := params.Info.Salary(params.Claims)
 	if err != nil {
-		return e, err
+		salary = 0 // Set default value
 	}
 	return Employee{
 		Name:    params.Info.Name,
@@ -91,8 +91,8 @@ func (e Employee) JSON() (b []byte, err error) {
 }
 
 func main() {
-	// Session user
-	u := NewUser(RoleAdmin)
+	// UserClaims, i.e. parsed from a JWT for a session
+	u := NewUserClaims(RoleAdmin)
 
 	// Info
 	i := NewEmployeeInfo("Joe", 123.0)
@@ -104,7 +104,7 @@ func main() {
 	e, err := NewEmployee(
 		// Params use composition
 		NewEmployeeParams{
-			User:    u,
+			Claims:  u,
 			Info:    i,
 			Address: a,
 		})
