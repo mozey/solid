@@ -62,14 +62,14 @@ type Employee struct {
 	Address string
 }
 
-type NewEmployeeParams struct {
+type EmployeeParams struct {
 	Claims  UserClaims
 	Info    EmployeeInfo
 	Address Address
 }
 
 // NewEmployee constructor func
-func NewEmployee(params NewEmployeeParams) (e Employee, err error) {
+func NewEmployee(params EmployeeParams) (e Employee, err error) {
 	salary, err := params.Info.Salary(params.Claims)
 	if err != nil {
 		salary = 0 // Set default value
@@ -103,7 +103,7 @@ func main() {
 	// Employee
 	e, err := NewEmployee(
 		// Params use composition
-		NewEmployeeParams{
+		EmployeeParams{
 			Claims:  u,
 			Info:    i,
 			Address: a,
