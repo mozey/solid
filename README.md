@@ -73,6 +73,9 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 - Promotes code reusability and maintainability.
 - Facilitates easier adaptation to changing requirements.
 
+**Applied to Go**:
+- Common interface to add functionality without changing existing code
+
 
 ### L - Liskov Substitution Principle (LSP)
 
