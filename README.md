@@ -2,12 +2,12 @@
 
 SOLID principles applied to Go with examples
 
-Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[1]()]</sup>
+Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[1](https://github.com/mozey/solid/tree/main?tab=readme-ov-file#1-origins)]</sup>
 
 
 ## Examples
 
-Go examples to demonstrate the SOLID principles:<sup>[[3]()]</sup>
+Go examples to demonstrate the SOLID principles:<sup>[[3](https://github.com/mozey/solid/tree/main?tab=readme-ov-file#3-go-patterns--examples)]</sup>
 - [Single responsibility](https://github.com/mozey/solid/tree/main/a-single-responsibility)
 - [Open closed](https://github.com/mozey/solid/tree/main/b-open-closed)
 - [Liskov substitution](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
@@ -39,7 +39,7 @@ Go **doesn't have**
 
 ## SOLID Principles
 
-**SOLID** is an acronym that represents five key principles of object-oriented design in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.<sup>[[2]()]</sup>
+**SOLID** is an acronym that represents five key principles of object-oriented design in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.<sup>[[2](https://github.com/mozey/solid/tree/main?tab=readme-ov-file#2-solid)]</sup>
 
 Here's a breakdown of each principle:
 
