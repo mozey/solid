@@ -78,6 +78,10 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 
 [Common Go Mistakes: Interface pollution](https://100go.co/#interface-pollution-5): *"Abstractions should be discovered, not created. To prevent unnecessary complexity, create an interface when you need it and not when you foresee needing it"*
 
+[More about interface pollution](https://100go.co/5-interface-pollution/)
+
+[More examples](https://github.com/teivah/100-go-mistakes/tree/master/src/02-code-project-organization/5-interface-pollution/)
+
 
 ### L - Liskov Substitution Principle (LSP)
 
@@ -105,8 +109,12 @@ Clients should not be forced to depend on interfaces that they don't use. Instea
 - Prevents unnecessary implementations of methods.
 
 **Applied to Go**:
+- Abstractions should be discovered, not created, see OCP
+- Interfaces are satisfied implicitly in Go
+- Client to decide whether it needs abstraction and the level
+- Adapter pattern can be used to work around interface that violate ISP
 
-[Common Go Mistakes: Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6)
+[Common Go Mistakes: Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6): *"Keeping interfaces on the client side avoids unnecessary abstractions"*
 
 
 ### D - Dependency Inversion Principle (DIP)
