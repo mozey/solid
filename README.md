@@ -90,7 +90,8 @@ Objects of a derived class should be substitutable for objects of their base cla
 - Supports polymorphism and code flexibility.
 
 **Applied to Go**:
-- 
+- Types that implement same interface (implicitly) are interchangeable
+- Compose methods and fields with embedded types
 
 
 ### I - Interface Segregation Principle (ISP)

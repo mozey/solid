@@ -20,7 +20,7 @@ type CreditCard struct {
 }
 
 func (cc CreditCard) Pay() {
-	fmt.Printf("Paid %.2f using CreditCard", cc.amount)
+	fmt.Printf("Paid %.2f using CreditCard\n", cc.amount)
 }
 
 func main() {

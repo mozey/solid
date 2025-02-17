@@ -12,7 +12,7 @@ type Animal struct {
 }
 
 func (a Animal) MakeSound() {
-	fmt.Println("Animal sound")
+	fmt.Printf("Animal sound: %s\n", a.Name)
 }
 
 type Bird struct {
@@ -20,7 +20,7 @@ type Bird struct {
 }
 
 func (b Bird) MakeSound() {
-	fmt.Println("Chirp chirp")
+	fmt.Printf("Chirp chirp: %s\n", b.Name)
 }
 
 type AnimalBehavior interface {
@@ -32,8 +32,8 @@ func MakeSound(ab AnimalBehavior) {
 }
 
 func main() {
-	a := Animal{}
-	b := Bird{}
+	a := Animal{Name: "Hippo"}
+	b := Bird{Animal{Name: "Starling"}}
 	MakeSound(a)
 	MakeSound(b)
 }
