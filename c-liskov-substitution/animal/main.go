@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+// This example demonstrates "inheritance" (composition) in Go,
+// as well as the Liskov Substitution Principle.
+// Types that implement the AnimalBehavior interface are interchangeable,
+// without affecting the correctness of the program, the MakeSound func
+
 type Animal struct {
 	Name string
 }
@@ -21,12 +26,6 @@ func (b Bird) MakeSound() {
 type AnimalBehavior interface {
 	MakeSound()
 }
-
-// This demonstrates inheritance in Go,
-// as well as the Liskov Substitution Principle.
-// Objects of a subtype Bird can be used wherever objects
-// of the base type Animal are expected,
-// without affecting the correctness of the program
 
 func MakeSound(ab AnimalBehavior) {
 	ab.MakeSound()

@@ -60,7 +60,7 @@ A class should have one, and only one, reason to change. This means that each cl
 - Encapsulate private struct fields
 - Types may be embedded
 
-[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)
+[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10): *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*
 
 
 ### O - Open/Closed Principle (OCP)
@@ -76,6 +76,8 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 **Applied to Go**:
 - Common interface to add functionality without changing existing code
 
+[Common Go Mistakes: Interface pollution](https://100go.co/#interface-pollution-5): *"Abstractions should be discovered, not created. To prevent unnecessary complexity, create an interface when you need it and not when you foresee needing it"*
+
 
 ### L - Liskov Substitution Principle (LSP)
 
@@ -86,6 +88,9 @@ Objects of a derived class should be substitutable for objects of their base cla
 - Ensures that inheritance is used correctly and consistently.
 - Prevents unexpected behavior when using subclasses.
 - Supports polymorphism and code flexibility.
+
+**Applied to Go**:
+- 
 
 
 ### I - Interface Segregation Principle (ISP)
