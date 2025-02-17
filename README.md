@@ -55,6 +55,10 @@ A class should have one, and only one, reason to change. This means that each cl
 - Reduced risk of unintended side effects when changes are made.
 
 **Applied to Go**:
+- Use composition instead of inheritance
+- Methods can be defined on structs
+- Encapsulate private struct fields
+- Types may be embedded
 
 [Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)
 
