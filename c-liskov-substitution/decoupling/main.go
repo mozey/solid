@@ -38,31 +38,38 @@ func (cs CustomerService) CreateNewCustomer(id string) error {
 	return cs.storer.StoreCustomer(customer)
 }
 
-type Logger struct{}
+type DB struct{}
 
-func (l Logger) StoreCustomer(c Customer) error {
-	log.Printf("Created a new customer with ID %s", c.id)
-	return nil
-}
-
-type Printer struct{}
-
-func (l Printer) StoreCustomer(c Customer) error {
+func (storer DB) StoreCustomer(c Customer) error {
 	fmt.Printf("Created a new customer with ID %s\n", c.id)
 	return nil
 }
 
+func (storer DB) CreateCustomerQuery(c Customer) string {
+	return fmt.Sprintf("Query to create customer %s", c.id)
+}
+
+type QueryLogger struct {
+	DB
+}
+
+func (storer QueryLogger) StoreCustomer(c Customer) error {
+	log.Print(storer.CreateCustomerQuery(c))
+	storer.DB.StoreCustomer(c)
+	return nil
+}
+
 func main() {
-	l := Logger{}
-	csLogger := CustomerService{storer: l}
-	err := csLogger.CreateNewCustomer("123")
+	s := DB{}
+	cs := CustomerService{storer: s}
+	err := cs.CreateNewCustomer("123")
 	if err != nil {
 		os.Exit(1)
 	}
 
-	p := Printer{}
-	csPrinter := CustomerService{storer: p}
-	err = csPrinter.CreateNewCustomer("456")
+	l := QueryLogger{}
+	cs = CustomerService{storer: l}
+	err = cs.CreateNewCustomer("456")
 	if err != nil {
 		os.Exit(1)
 	}
