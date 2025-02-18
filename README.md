@@ -1,14 +1,13 @@
 # SOLID
 
-SOLID principles applied to Go with examples
+SOLID principles applied to Go with examples.
 
-Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[1](https://github.com/mozey/solid/tree/main?tab=readme-ov-file#1-origins)]</sup>
+Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[Origins of SOLID, DDD, & Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)]</sup>
 
 
 ## Examples
 
-Go examples to demonstrate the SOLID principles:<sup>[[3](https://github.com/mozey/solid/tree/main?tab=readme-ov-file#3-go-patterns--examples)]</sup>
-- [Single responsibility](https://github.com/mozey/solid/tree/main/a-single-responsibility)
+Go examples to demonstrate the SOLID principles:
 - [Open closed](https://github.com/mozey/solid/tree/main/b-open-closed)
 - [Liskov substitution](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
 - [Interface segregation](https://github.com/mozey/solid/tree/main/d-interface-segregation)
@@ -39,7 +38,11 @@ Go **doesn't have**
 
 ## SOLID Principles
 
-**SOLID** is an acronym that represents five key principles of object-oriented design in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.<sup>[[2](https://github.com/mozey/solid/tree/main?tab=readme-ov-file#2-solid)]</sup>
+**SOLID** is an acronym that represents five key principles of *Object-Oriented Design* in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.<sup>[[Wikipedia: SOLID](https://en.wikipedia.org/wiki/SOLID)]</sup>
+
+Applied to Go, we can summarise this approach as follows:<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=1361s)] [[Go Time #16: SOLID Go Design](https://changelog.com/gotime/16)]</sup>
+
+*Interfaces let you apply the SOLID principles to Go programs*
 
 Here's a breakdown of each principle:
 
@@ -55,12 +58,19 @@ A class should have one, and only one, reason to change. This means that each cl
 - Reduced risk of unintended side effects when changes are made.
 
 **Applied to Go**:
+- Coupling: *two things that change together* & Cohesion: *pieces of code that naturally fit together*<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=316s)]</sup>
+- *Avoid miscellaneous packages*, e.g. package server, utils, common
+- Structure functions, types, and methods into *packages that exhibit natural cohesion*, e.g. net/http, os/exec, and encoding/json<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=1278s)]</sup>
+- The *idea of a bounded context*, to *group things up by responsibility*, folders for cmd, internal, and domain models
+- Go *stops you from importing from other projects’ internal folders*<sup>[[Go Time #273: Domain-driven design with Go](https://changelog.com/gotime/273)]</sup>
+- *DDD can inform SRP*: Understanding the domain helps you identify the appropriate responsibilities for your classes. By focusing on domain concepts, you can avoid classes that are overloaded with unrelated tasks
 - Use composition instead of inheritance
 - Methods can be defined on structs
 - Encapsulate private struct fields
 - Types may be embedded
 
-[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10): *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*
+[SRP Examples](https://github.com/mozey/solid/tree/main/a-single-responsibility)
+- *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*<sup>[[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)]</sup>
 
 
 ### O - Open/Closed Principle (OCP)
@@ -144,21 +154,4 @@ Easier to write unit tests for individual classes and components.
 
 **Reusability**: 
 Encourages the creation of reusable code components that can be used in different parts of the system.
-
-
-## References
-
-### [1] Origins
-
-[Origins of SOLID, DDD, & Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)
-
-### [2] SOLID
-
-[Wikipedia: SOLID](https://en.wikipedia.org/wiki/SOLID)
-
-### [3] Go Patterns & Examples
-
-[Go Examples: Introduction to SOLID](https://hackernoon.com/go-design-patterns-an-introduction-to-solid)
-
-[Go Time #16: SOLID Go Design](https://changelog.com/gotime/16)
 
