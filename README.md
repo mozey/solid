@@ -2,7 +2,17 @@
 
 SOLID principles applied to Go with examples.
 
-Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[Origins of SOLID, DDD, & Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)] [[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0)]</sup>
+[Origins of SOLID, DDD, and Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)
+- Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=130s)]</sup>
+- Clean Architecture is a way to develop software with low coupling
+- You find the bounded context of DDD at the innermost circles of a clean architecture<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=503s)]</sup>
+- Services do not form an architecture. They form a deployment pattern<sup>[[InfoQ Podcast](https://youtu.be/hFtVBAxjeK0?si=Zs28Kl0YIRgLnyzK&t=667)]</sup>
+- Advantage of clean architecture is that, the highest level decisions (those that make or save the most money), are unaffected by GUI, schema, and framework changes. Dependencies must point inwards<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=831s)]</sup>
+- Protect the business rules from changes
+- Sidecar (service talks to localhost) and service mesh (allows the sidecar to discover other services<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=987s)</sup>
+- Where you want to live is between convenient code, and "clean" code<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=1064s)</sup>
+- Create the boundaries anyway, and then remove then if performance matters. Worse may be better, example of function calls taking nanoseconds
+- Clean architecture requires some kind of indirection to cross boundaries, e.g. polymorphism (in an Object-Oriented language) or pointers to functions<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=1625s)</sup>
 
 
 ## Examples
@@ -18,7 +28,7 @@ Go examples to demonstrate the SOLID principles:
 
 Go is not an [Object-Oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) language, but it has some **similar features**
 - *Methods*: Define methods on structs, similar to methods on objects
-- *Interfaces*: Define a set of methods that a type must implement ([polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)))
+- *Interfaces*: Define a set of methods that a type must implicitly implement ([subtype polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)))
 - *Encapsulation*: Control the visibility of fields and methods using capitalization. Use packages to organise code
 
 Go **doesn't have**
