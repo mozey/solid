@@ -18,7 +18,6 @@ SOLID principles applied to Go with examples.
 ## Examples
 
 Go examples to demonstrate the SOLID principles:
-- [Open closed](https://github.com/mozey/solid/tree/main/b-open-closed)
 - [Liskov substitution](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
 - [Interface segregation](https://github.com/mozey/solid/tree/main/d-interface-segregation)
 - [Dependency inversion](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
@@ -80,7 +79,7 @@ A class should have one, and only one, reason to change. This means that each cl
 - Types may be embedded
 
 [SRP Examples](https://github.com/mozey/solid/tree/main/a-single-responsibility)
-- Beware: *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*<sup>[[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)]</sup>
+- Common Go Mistakes: *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*<sup>[[Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)]</sup>
 
 
 ### O - Open/Closed Principle (OCP)
@@ -96,11 +95,13 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 **Applied to Go**:
 - Common interface to add functionality without changing existing code
 
-[Common Go Mistakes: Interface pollution](https://100go.co/#interface-pollution-5): *"Abstractions should be discovered, not created. To prevent unnecessary complexity, create an interface when you need it and not when you foresee needing it"*
+[OCP Examples](https://github.com/mozey/solid/tree/main/b-open-closed)
+- Common Go Mistakes: *"Abstractions should be discovered, not created. To prevent unnecessary complexity, create an interface when you need it and not when you foresee needing it"*<sup>[[Interface pollution](https://100go.co/#interface-pollution-5)]</sup>
 
-[More about interface pollution](https://100go.co/5-interface-pollution/)
 
-[More examples](https://github.com/teivah/100-go-mistakes/tree/master/src/02-code-project-organization/5-interface-pollution/)
+TODO Move this to the next principle?
+- *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
+- [More examples](https://github.com/teivah/100-go-mistakes/tree/master/src/02-code-project-organization/5-interface-pollution/)
 
 
 ### L - Liskov Substitution Principle (LSP)

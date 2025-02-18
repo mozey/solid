@@ -1,5 +1,7 @@
 # Single Responsibility Principle (SRP)
 
+## User example
+
 Key points
 - **Clear Separation of Concerns**: Each struct (`User`, `UserValidator`, `UserSerializer`, `UserRepository`) has a single, well-defined responsibility. This makes the code easier to understand, maintain, and modify
 - **Reduced Coupling**: Changes to one struct are less likely to affect other structs. For example, you could *change the serialization format without affecting the user validation* or storage logic
