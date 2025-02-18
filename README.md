@@ -2,7 +2,7 @@
 
 SOLID principles applied to Go with examples.
 
-Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[Origins of SOLID, DDD, & Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)]</sup>
+Origins of the acronym: *"Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID"*<sup>[[Origins of SOLID, DDD, & Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)] [[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0)]</sup>
 
 
 ## Examples
@@ -27,11 +27,11 @@ Go **doesn't have**
 
 **Composition** in Go
 - [Embedding](https://go.dev/doc/effective_go#embedding): Embedding types within a struct or interface. It's like saying *"this struct has-a"* instead of *"this struct is-a"*
-- [Interfaces](https://go.dev/doc/effective_go#interfaces_and_types): Specify the behavior of an object: if something can do this, then it can be used here. Define a set of methods that a type must implement. Allows you to write code that works with any type that implements the interface, regardless of its underlying type. E.g. *io.Writer* has the *Write()* method
+- [Interfaces](https://go.dev/doc/effective_go#interfaces_and_types): Specify the behavior of an *"object"*: if something can do this, then it can be used here. Define a set of methods that a type must implement. Allows you to write code that works with any type that implements the interface, regardless of its underlying type. E.g. *io.Writer* interface has the *Write()* method
 
 **Benefits of Composition**
 - *Code Reusability*: Reuse existing types to build new ones, avoiding code duplication
-- *Flexibility*: Easily swap out implementations by using interfaces
+- *Flexibility*: Easily swap out implementations by using interfaces. *Small interfaces lead to simple implementations*<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=652s)]</sup>
 - *Loose Coupling*: Components are less dependent on each other, making it easier to modify or replace them
 - *Testability*: Smaller components are easier to test in isolation
 
@@ -66,11 +66,11 @@ A class should have one, and only one, reason to change. This means that each cl
 - *DDD can inform SRP*: Understanding the domain helps you identify the appropriate responsibilities for your classes. By focusing on domain concepts, you can avoid classes that are overloaded with unrelated tasks
 - Use composition instead of inheritance
 - Methods can be defined on structs
-- Encapsulate private struct fields
+- Encapsulate private struct fields, use packages to organise code
 - Types may be embedded
 
 [SRP Examples](https://github.com/mozey/solid/tree/main/a-single-responsibility)
-- *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*<sup>[[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)]</sup>
+- Beware: *"type embedding can help avoid boilerplate code; ensure that doing so doesn’t lead to visibility issues where some fields should have remained hidden"*<sup>[[Common Go Mistakes: Possible problems with type embedding](https://100go.co/#not-being-aware-of-the-possible-problems-with-type-embedding-10)]</sup>
 
 
 ### O - Open/Closed Principle (OCP)
