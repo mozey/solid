@@ -18,7 +18,6 @@ SOLID principles applied to Go with examples.
 ## Examples
 
 Go examples to demonstrate the SOLID principles:
-- [Liskov substitution](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
 - [Interface segregation](https://github.com/mozey/solid/tree/main/d-interface-segregation)
 - [Dependency inversion](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
 
@@ -99,15 +98,10 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 - Common Go Mistakes: *"Abstractions should be discovered, not created. To prevent unnecessary complexity, create an interface when you need it and not when you foresee needing it"*<sup>[[Interface pollution](https://100go.co/#interface-pollution-5)]</sup>
 
 
-TODO Move this to the next principle?
-- *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
-- [More examples](https://github.com/teivah/100-go-mistakes/tree/master/src/02-code-project-organization/5-interface-pollution/)
-
-
 ### L - Liskov Substitution Principle (LSP)
 
 **Concept**: 
-Objects of a derived class should be substitutable for objects of their base class without altering the correctness of the program. In simpler terms, if you have a class (e.g., "Animal") and a subclass (e.g., "Dog"), you should be able to use a "Dog" object wherever an "Animal" object is expected.
+Objects of a derived class should be substitutable for objects of their base class without altering the correctness of the program. In simpler terms, if you have a class (e.g., "Bird") and a subclass (e.g., "Eagle"), you should be able to use an "Eagle" object wherever a "Bird" object is expected.
 
 **Benefits**:
 - Ensures that inheritance is used correctly and consistently.
@@ -116,7 +110,10 @@ Objects of a derived class should be substitutable for objects of their base cla
 
 **Applied to Go**:
 - Types that implement same interface (implicitly) are interchangeable
-- Compose methods and fields with embedded types
+- Use interfaces for: *common behaviour*, *decoupling*, and *restricting behaviour*
+
+[LSP Examples](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
+- Common Go Mistakes: *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
 
 
 ### I - Interface Segregation Principle (ISP)
