@@ -5,7 +5,7 @@ SOLID principles applied to Go with examples.
 [Origins of SOLID, DDD, and Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)
 - Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=130s)]</sup>
 - Clean Architecture is a way to develop software with low coupling
-- You find the bounded context of DDD at the innermost circles of a clean architecture<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=503s)]</sup>
+- You find the bounded context of [DDD](https://en.wikipedia.org/wiki/Domain-driven_design) at the innermost circles of a clean architecture<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=503s)]</sup>
 - Services do not form an architecture. They form a deployment pattern<sup>[[InfoQ Podcast](https://youtu.be/hFtVBAxjeK0?si=Zs28Kl0YIRgLnyzK&t=667)]</sup>
 - Advantage of clean architecture is that, the highest level decisions (those that make or save the money), are unaffected by GUI, schema, and framework changes. Dependencies must point inwards<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=831s)]</sup>
 - Protect the business rules from changes
@@ -18,7 +18,6 @@ SOLID principles applied to Go with examples.
 ## Examples
 
 Go examples to demonstrate the SOLID principles:
-- [Interface segregation](https://github.com/mozey/solid/tree/main/d-interface-segregation)
 - [Dependency inversion](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
 
 
@@ -127,12 +126,13 @@ Clients should not be forced to depend on interfaces that they don't use. Instea
 - Prevents unnecessary implementations of methods.
 
 **Applied to Go**:
+- Interfaces are implemented implicitly in Go
 - Abstractions should be discovered, not created, see OCP
-- Interfaces are satisfied implicitly in Go
-- Client to decide whether it needs abstraction and the level
-- Adapter pattern can be used to work around interface that violate ISP
+- Small interfaces lead to simple implementations
+- Client (consumer) to decide whether it needs an abstraction and the level
 
-[Common Go Mistakes: Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6): *"Keeping interfaces on the client side avoids unnecessary abstractions"*
+[ISP Examples](https://github.com/mozey/solid/tree/main/d-interface-segregation)
+- Common Go Mistakes: *"Keeping interfaces on the client side avoids unnecessary abstractions"*<sup>[[Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6)]</sup>
 
 
 ### D - Dependency Inversion Principle (DIP)
