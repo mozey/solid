@@ -39,7 +39,7 @@ Go **doesn't have**
 
 ## SOLID Principles
 
-**SOLID** is an acronym that represents five key principles of *Object-Oriented Design* in software engineering. These principles are aimed at making software more maintainable, scalable, and flexible. By adhering to SOLID principles, developers can create code that is easier to understand, modify, and extend over time.<sup>[[Wikipedia: SOLID](https://en.wikipedia.org/wiki/SOLID)]</sup>
+**SOLID** is an acronym that represents five key principles, that may be applied when taking a software engineering approach to *Object-Oriented Design*. These principles are aimed at making software more maintainable, scalable, and flexible. It helps developers create code that is easier to understand, modify, and extend over time.<sup>[[Wikipedia: SOLID](https://en.wikipedia.org/wiki/SOLID)]</sup>
 
 Applied to Go, we can summarise this approach as follows:<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=1361s)] [[Go Time #16: SOLID Go Design](https://changelog.com/gotime/16)]</sup>
 
