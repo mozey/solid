@@ -118,7 +118,7 @@ Objects of a derived class should be substitutable for objects of their base cla
 ### I - Interface Segregation Principle (ISP)
 
 **Concept**: 
-Clients should not be forced to depend on interfaces that they don't use. Instead, many specific interfaces are better than one general interface. This means that interfaces should be small and focused on specific sets of related methods.
+Clients should not be forced to depend on methods that they don't use. Instead, many specific interfaces are better than one general interface. This means that interfaces should be small and focused on specific sets of related methods.
 
 **Benefits**:
 - Reduces dependencies and coupling between classes.
@@ -127,9 +127,9 @@ Clients should not be forced to depend on interfaces that they don't use. Instea
 
 **Applied to Go**:
 - Interfaces are implemented implicitly in Go
-- Abstractions should be discovered, not created, see OCP
 - Small interfaces lead to simple implementations
-- Client (consumer) to decide whether it needs an abstraction and the level
+- Accept interfaces, return structs<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=772s)]</sup>
+- Define functions and methods that depend only on the behaviour that they need<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=1322s)]</sup>
 
 [ISP Examples](https://github.com/mozey/solid/tree/main/d-interface-segregation)
 - Common Go Mistakes: *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
@@ -152,6 +152,9 @@ High-level modules should not depend on low-level modules. Both should depend on
 **Applied to Go**:
 - Avoid injecting implementations (structs), inject abstractions (interfaces)
 - Types of explicit DI: *Constructor* or *Setter* (Method)
+- Structure of the import graph must be acyclic, otherwise compilation error
+- Push specifics as high as possible up the import graph<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=1142s)]</sup>
+- Refactor dependencies from compile time to run time<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=1342s)]</sup>
 
 [DIP Examples](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
 - Common Go Mistakes: *"Not using the functional options pattern"*. Use the functional options pattern to configure options in an API-friendly manner. Works well for dependency injection. It makes your constructors more flexible, readable, and maintainable, especially when dealing with multiple dependencies and configuration options, some of which may be optional<sup>[[Functional options pattern](https://100go.co/#not-using-the-functional-options-pattern-11)]</sup>
