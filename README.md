@@ -148,18 +148,24 @@ High-level modules should not depend on low-level modules. Both should depend on
 
 ### Benefits of SOLID Principles
 
-**Maintainability**: 
-Makes code easier to understand, modify, and maintain over time.
+Clean Architecture is a way to develop software with low coupling. The architecture is divided into layers, with the core business logic in the center and external concerns (like UI, database) in the outer layers. Dependencies flow inwards, towards the core business logic. Inner layers don't depend on outer layers.
 
-**Scalability**: 
-Promotes code that can be easily extended and scaled to accommodate new features and requirements.
+SOLID principles provide guidelines for creating well-designed components that fit within the layers of Clean Architecture.
 
-**Flexibility**: 
-Enables code that is adaptable to changing needs and technologies.
+By applying both SOLID principles and Clean Architecture, you can create software that is:
 
-**Testability**: 
-Easier to write unit tests for individual classes and components.
+**Maintainable**: 
+Is easier to understand, modify, and maintain over time.
 
-**Reusability**: 
+**Reusable**: 
 Encourages the creation of reusable code components that can be used in different parts of the system.
+
+**Flexible**: 
+Enables code that is adaptable to changing requirements, and independent of the underlying technologies.
+
+**Testable**: 
+Easier to write test for specific functionality. Write unit tests for individual components. Integration and end-to-end tests for groups of components, swapping out dependencies for stubs (test doubles with pre-programmed responses) and mocks (test doubles with expectations) as required 
+
+**Scalable**: 
+Clean Architecture is easier to optimise, new features and requirements can be implemented without negatively impacting the performance of existing code.
 
