@@ -106,7 +106,7 @@ Objects of a derived class should be substitutable for objects of their base cla
 - Use interfaces for: *common behaviour*, *decoupling*, and *restricting behaviour*
 
 [LSP Examples](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
-- Common Go Mistakes: *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
+- Common Go Mistakes: *"Keeping interfaces on the client side avoids unnecessary abstractions"*<sup>[[Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6)]</sup>
 
 
 ### I - Interface Segregation Principle (ISP)
@@ -126,7 +126,7 @@ Clients should not be forced to depend on interfaces that they don't use. Instea
 - Client (consumer) to decide whether it needs an abstraction and the level
 
 [ISP Examples](https://github.com/mozey/solid/tree/main/d-interface-segregation)
-- Common Go Mistakes: *"Keeping interfaces on the client side avoids unnecessary abstractions"*<sup>[[Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6)]</sup>
+- Common Go Mistakes: *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
 
 
 ### D - Dependency Inversion Principle (DIP)

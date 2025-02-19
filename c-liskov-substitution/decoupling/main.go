@@ -38,35 +38,37 @@ func (cs CustomerService) CreateNewCustomer(id string) error {
 	return cs.storer.StoreCustomer(customer)
 }
 
-type DB struct{}
+type MySQL struct{}
 
-func (storer DB) StoreCustomer(c Customer) error {
+func (storer MySQL) StoreCustomer(c Customer) error {
 	fmt.Printf("Created a new customer with ID %s\n", c.id)
 	return nil
 }
 
-func (storer DB) CreateCustomerQuery(c Customer) string {
+func (storer MySQL) CreateCustomerQuery(c Customer) string {
 	return fmt.Sprintf("Query to create customer %s", c.id)
 }
 
 type QueryLogger struct {
-	DB
+	MySQL
 }
 
 func (storer QueryLogger) StoreCustomer(c Customer) error {
 	log.Print(storer.CreateCustomerQuery(c))
-	storer.DB.StoreCustomer(c)
+	storer.MySQL.StoreCustomer(c)
 	return nil
 }
 
 func main() {
-	s := DB{}
+	s := MySQL{}
 	cs := CustomerService{storer: s}
 	err := cs.CreateNewCustomer("123")
 	if err != nil {
 		os.Exit(1)
 	}
 
+	// The storer base type (MySQL) is interchangeable
+	// with the subtype (QueryLogger)
 	l := QueryLogger{}
 	cs = CustomerService{storer: l}
 	err = cs.CreateNewCustomer("456")
