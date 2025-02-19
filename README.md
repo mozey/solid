@@ -85,7 +85,11 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 - Facilitates easier adaptation to changing requirements.
 
 **Applied to Go**:
-- Common interface to add functionality without changing existing code
+- Compose simple types with embedding rather than extending them through inheritance<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=1294)]</sup>
+- Types are *open for extension* by embedding<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=484)]</sup>
+- The method set of a type cannot be altered by embedding it into other types, and is therefore *closed to modification*
+- Methods in Go are syntactic sugar around functions with a pre-declared formal parameter, that being it's receiver.
+- Use common interfaces to add functionality without changing existing code
 
 [OCP Examples](https://github.com/mozey/solid/tree/main/b-open-closed)
 - Common Go Mistakes: *"Abstractions should be discovered, not created. To prevent unnecessary complexity, create an interface when you need it and not when you foresee needing it"*<sup>[[Interface pollution](https://100go.co/#interface-pollution-5)]</sup>
@@ -180,3 +184,9 @@ Easier to write test for specific functionality. Write unit tests for individual
 **Scalable**: 
 Clean Architecture is easier to optimise, new features and requirements can be implemented without negatively impacting the performance of existing code.
 
+
+## Error handling in Go
+
+TODO 
+- See notes on Go Time 16
+- Consider [unnecessary nested code](https://100go.co/#unnecessary-nested-code-2) and [align the happy path to the left edge](https://medium.com/@matryer/line-of-sight-in-code-186dd7cdea88)
