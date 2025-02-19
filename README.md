@@ -192,6 +192,19 @@ Clean Architecture is easier to optimise, new features and requirements can be i
 
 ## Error handling in Go
 
-TODO 
-- See notes on Go Time 16
-- Consider [unnecessary nested code](https://100go.co/#unnecessary-nested-code-2) and [align the happy path to the left edge](https://medium.com/@matryer/line-of-sight-in-code-186dd7cdea88)
+Consider podcast discussion in [Go Time #16](https://changelog.com/gotime/16):
+
+All the developers on the team are encouraged to think about errors while writing the code. *Exceptions* allow you to delay thinking about how the error will be handled.
+
+Error values may be compared to predefined Sentinel Errors, e.g. `io.EOF` or `sql.ErrNoRows`. Do this sparingly, avoid comparing errors everywhere in the code. Usually it's enough to return the error all the way up the caller stack. Wrap and unwrap error value as required.
+
+Who is the error message (value) for, the *end-user or developers*? Programs shouldn't say something unless there is an error. Stack traces are useful to developers, and may be included with the error.
+
+*Structured logs* are not useful to the end-user, but are useful in development. RequestID (tracing) and UserID (audit) are examples where structured logging is especially useful.
+
+Common Go Mistakes: [Handling an error twice](https://100go.co/#handling-an-error-twice-52). In most situations, an error should be handled only once. Logging an error is handling an error. Therefore, you have to choose between logging or returning an error. In many cases, error wrapping is the solution as it allows you to provide additional context to an error and return the source error.
+
+Don't put metrics in the logs, keep these in separate systems.
+
+Common Go Mistakes: [Unnecessary nested code](https://100go.co/#unnecessary-nested-code-2). Avoid nested levels, [bad line of sight](https://www.youtube.com/watch?v=yeetIgNeIkc&t=330s), and keep the happy path aligned on the left. If possible, make the happy return the last statement. This makes building a mental code model easier
+
