@@ -11,7 +11,7 @@ SOLID principles applied to Go with examples.
 - Protect the business rules from changes
 - Sidecar (service talks to localhost) and service mesh (allows the sidecar to discover other services)<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=987s)</sup>
 - Where you want to live is between convenient code, and "clean" code<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=1064s)</sup>
-- Create the boundaries anyway, and then remove then if performance matters. Worse may be better, example of function calls taking nanoseconds
+- Create the boundaries anyway, and then remove them if performance matters. Worse may be better, example of function calls taking nanoseconds
 - Clean architecture requires some kind of indirection to cross boundaries, polymorphism (in an Object-Oriented language) or pointers to functions<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=1625s)</sup>
 
 
