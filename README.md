@@ -145,14 +145,16 @@ High-level modules should not depend on low-level modules. Both should depend on
 
 **Applied to Go**:
 - Avoid injecting implementations (structs), inject abstractions (interfaces)
-- Three types of DI: *Constructor*, *Property* and, *Method* (Setter)
-
-**Go Libraries**:
-- *wire*: Operates without runtime state or reflection, <sup>[[google/wire](https://github.com/google/wire)]</sup>
-- *dig*: Reflection based dependency injection toolkit, resolves the object graph during process startup<sup>[[uber-go/dig](https://github.com/uber-go/dig)]</sup>
-- *go-sl*: Uses generics to provide a type safe interface without using reflection, implements the [Service Locator](https://martinfowler.com/articles/injection.html#UsingAServiceLocator) pattern<sup>[[aziis98/go-sl](https://github.com/aziis98/go-sl)]</sup>
+- Types of explicit DI: *Constructor* or *Setter* (Method)
 
 [DIP Examples](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
+- Common Go Mistakes: *"Not using the functional options pattern"*. Use the functional options pattern to configure options in an API-friendly manner. Works well for dependency injection. It makes your constructors more flexible, readable, and maintainable, especially when dealing with multiple dependencies and configuration options, some of which may be optional<sup>[[Functional options pattern](https://100go.co/#not-using-the-functional-options-pattern-11)]</sup>
+
+**DI container libs**:
+- For complex projects with many dependencies, use a DI or Inversion of Control (IoC) container library. A framework that automates the process of dependency injection, instead of your code explicitly creating and injecting its dependencies
+- [google/wire](https://github.com/google/wire): Operates without runtime state or reflection
+- [uber-go/dig](https://github.com/uber-go/dig): Reflection based dependency injection toolkit, resolves the object graph during process startup
+- [aziis98/go-sl](https://github.com/aziis98/go-sl): Uses generics to provide a type safe interface without using reflection, implements the [Service Locator](https://martinfowler.com/articles/injection.html#UsingAServiceLocator) pattern
 
 
 ### Benefits of SOLID Principles
