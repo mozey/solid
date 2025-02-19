@@ -15,12 +15,6 @@ SOLID principles applied to Go with examples.
 - Clean architecture requires some kind of indirection to cross boundaries, polymorphism (in an Object-Oriented language) or pointers to functions<sup>[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=1625s)</sup>
 
 
-## Examples
-
-Go examples to demonstrate the SOLID principles:
-- [Dependency inversion](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
-
-
 ## Go is not Object-Oriented
 
 Go is not an [Object-Oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) language, but it has some **similar features**
@@ -144,6 +138,21 @@ High-level modules should not depend on low-level modules. Both should depend on
 - Decouples classes and reduces dependencies.
 - Increases code reusability and testability.
 - Makes it easier to change implementations without affecting other parts of the system.
+
+**Note**:
+- The *DIP* guides how you structure the dependencies between different parts of the software
+- *Dependency Injection (DI)*: is how you create and provision dependencies
+
+**Applied to Go**:
+- Avoid injecting implementations (structs), inject abstractions (interfaces)
+- Three types of DI: *Constructor*, *Property* and, *Method* (Setter)
+
+**Go Libraries**:
+- *wire*: Operates without runtime state or reflection, <sup>[[google/wire](https://github.com/google/wire)]</sup>
+- *dig*: Reflection based dependency injection toolkit, resolves the object graph during process startup<sup>[[uber-go/dig](https://github.com/uber-go/dig)]</sup>
+- *go-sl*: Uses generics to provide a type safe interface without using reflection, implements the [Service Locator](https://martinfowler.com/articles/injection.html#UsingAServiceLocator) pattern<sup>[[aziis98/go-sl](https://github.com/aziis98/go-sl)]</sup>
+
+[DIP Examples](https://github.com/mozey/solid/tree/main/e-dependency-inversion)
 
 
 ### Benefits of SOLID Principles
