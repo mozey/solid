@@ -93,10 +93,10 @@ func (s SimpleSPrinter) PrintDocument(document string) {
 }
 
 // .............................................................................
-// Flexible and Composable solution with generic interface
+// Flexible and Composable solution with a standard interface
 
-// GPrinter interface (for printing, faxing, or scanning)
-type GPrinter interface {
+// APrinter interface (for printing, faxing, or scanning)
+type APrinter interface {
 	io.Writer
 	Print()
 }
@@ -131,7 +131,7 @@ func (printer *Fax) Print() {
 	fmt.Printf("Faxed: %s\n", printer.buf)
 }
 
-type GScanner interface {
+type AScanner interface {
 	io.Reader
 }
 
@@ -170,7 +170,7 @@ func NewPipeline(scanner io.Reader, printers ...io.Writer) error {
 
 	// Print
 	for _, p := range printers {
-		if printer, ok := p.(GPrinter); ok {
+		if printer, ok := p.(APrinter); ok {
 			printer.Print()
 		}
 	}
