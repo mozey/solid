@@ -178,7 +178,6 @@ This means that classes should depend on interfaces or abstract classes rather t
 - For complex projects with many dependencies, use a DI or Inversion of Control (IoC) container library. A framework that automates the process of dependency injection, instead of your code explicitly creating and injecting its dependencies
 - [google/wire](https://github.com/google/wire): Operates without runtime state or reflection
 - [uber-go/dig](https://github.com/uber-go/dig): Reflection based dependency injection toolkit, resolves the object graph during process startup
-- [aziis98/go-sl](https://github.com/aziis98/go-sl): Uses generics to provide a type safe interface without using reflection, implements the [Service Locator](https://martinfowler.com/articles/injection.html#UsingAServiceLocator) pattern
 
 
 ### Benefits of SOLID Principles
