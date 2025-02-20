@@ -51,7 +51,10 @@ Here's a breakdown of each principle:
 ### S - Single Responsibility Principle (SRP)
 
 **Concept**: 
-A class should have one, and only one, reason to change. This means that each class should have a single responsibility or job within the software system.
+
+*A class should have only one reason to change.* -- [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), "Agile Software Development, Principles, Patterns, and Practices", 2003
+
+This means that each class should have a single responsibility or job within the software system. If different actors (stakeholder or user) require different changes, those changes should be separated into different classes.
 
 **Benefits**:
 - Improved code organization and readability.
@@ -77,6 +80,9 @@ A class should have one, and only one, reason to change. This means that each cl
 ### O - Open/Closed Principle (OCP)
 
 **Concept**: 
+
+*Software modules should be open for extension, but closed for modification.* -- Bertrand Meyer, "Object-Oriented Software Construction", 1988
+
 Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. This means that you should be able to add new functionality to a class without altering its existing code.   
 
 **Benefits**:
@@ -98,7 +104,10 @@ Software entities (classes, modules, functions, etc.) should be open for extensi
 ### L - Liskov Substitution Principle (LSP)
 
 **Concept**: 
-Objects of a derived class should be substitutable for objects of their base class without altering the correctness of the program. In simpler terms, if you have a class (e.g., "Bird") and a subclass (e.g., "Eagle"), you should be able to use an "Eagle" object wherever a "Bird" object is expected.
+
+*Substitutability: if S is a subtype of T, then objects of type T can be replaced with objects of type S without altering the desirable properties of the program* -- [Barbara Liskov](https://en.wikipedia.org/wiki/Barbara_Liskov), "Data abstraction and hierarchy", 1987
+
+Objects of a derived class should be substitutable for objects of their base class without altering the correctness of the program.
 
 **Benefits**:
 - Ensures that inheritance is used correctly and consistently.
@@ -112,13 +121,15 @@ Objects of a derived class should be substitutable for objects of their base cla
 - Use interfaces for: *common behaviour*, *decoupling*, and *restricting behaviour*
 
 [LSP Examples](https://github.com/mozey/solid/tree/main/c-liskov-substitution)
-- Common Go Mistakes: *"Keeping interfaces on the client side avoids unnecessary abstractions"*<sup>[[Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6)]</sup>
 
 
 ### I - Interface Segregation Principle (ISP)
 
 **Concept**: 
-Clients should not be forced to depend on methods that they don't use. Instead, many specific interfaces are better than one general interface. This means that interfaces should be small and focused on specific sets of related methods.
+
+*Clients should not be forced to depend on methods that they don't use.* -- Robert C. Martin
+
+Instead, many specific interfaces are better than one general interface. This means that interfaces should be small and focused on specific sets of related methods.
 
 **Benefits**:
 - Reduces dependencies and coupling between classes.
@@ -133,12 +144,16 @@ Clients should not be forced to depend on methods that they don't use. Instead, 
 
 [ISP Examples](https://github.com/mozey/solid/tree/main/d-interface-segregation)
 - Common Go Mistakes: *"The bigger the interface, the weaker the abstraction"*<sup>[[Interface pollution](https://100go.co/5-interface-pollution/)]</sup>
+- Common Go Mistakes: *"Keeping interfaces on the client side avoids unnecessary abstractions"*<sup>[[Interface on the producer side](https://100go.co/#interface-on-the-producer-side-6)]</sup>
 
 
 ### D - Dependency Inversion Principle (DIP)
 
 **Concept**: 
-High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions. This means that classes should depend on interfaces or abstract classes rather than concrete classes.   
+
+*High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.* -- Robert C. Martin
+
+This means that classes should depend on interfaces or abstract classes rather than concrete classes.   
 
 **Benefits**:
 - Decouples classes and reduces dependencies.

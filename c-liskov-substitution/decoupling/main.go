@@ -7,7 +7,8 @@ import (
 )
 
 // Testing the code below is difficult,
-// customerService relies on the actual implementation to store a Customer
+// customerService relies on the actual implementation to store a Customer.
+// See "Decoupling" example here: https://100go.co/5-interface-pollution/
 
 // type CustomerService struct {
 //     store mysql.Store // Depends on the concrete implementation
