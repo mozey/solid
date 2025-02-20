@@ -18,30 +18,30 @@ SOLID principles applied to Go with examples.
 ## Go is not Object-Oriented
 
 Go is not an [Object-Oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) language, but it has some **similar features**
-- *Methods*: Define methods on structs, similar to methods on objects
-- *Interfaces*: Define a set of methods that a type must implicitly implement ([subtype polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)))
-- *Encapsulation*: Control the visibility of fields and methods using capitalization. Use packages to organise code
+- **Methods**: Define methods on structs, similar to methods on objects
+- **Interfaces**: Define a set of methods that a type must implicitly implement ([subtype polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)))
+- **Encapsulation**: Control the visibility of fields and methods using capitalization. Use packages to organise code
 
 Go **doesn't have**
-- *Classes*: It has structs
-- *Inheritance*: Promotes composition over inheritance
+- **Classes**: It has structs
+- **Inheritance**: Promotes composition over inheritance
 
 **Composition** in Go
 - [Embedding](https://go.dev/doc/effective_go#embedding): Embedding types within a struct or interface. It's like saying *"this struct has-a"* instead of *"this struct is-a"*
 - [Interfaces](https://go.dev/doc/effective_go#interfaces_and_types): Specify the behavior of an *"object"*: if something can do this, then it can be used here. Define a set of methods that a type must implement. Allows you to write code that works with any type that implements the interface, regardless of its underlying type. E.g. *io.Writer* interface has the *Write()* method
 
 **Benefits of Composition**
-- *Code Reusability*: Reuse existing types to build new ones, avoiding code duplication
-- *Flexibility*: Easily swap out implementations by using interfaces. *Small interfaces lead to simple implementations*<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=652s)]</sup>
-- *Loose Coupling*: Components are less dependent on each other, making it easier to modify or replace them
-- *Testability*: Smaller components are easier to test in isolation
+- **Code Reusability**: Reuse existing types to build new ones, avoiding code duplication
+- **Flexibility**: Easily swap out implementations by using interfaces. *Small interfaces lead to simple implementations*<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=652s)]</sup>
+- **Loose Coupling**: Components are less dependent on each other, making it easier to modify or replace them
+- **Testability**: Smaller components are easier to test in isolation
 
 
 ## SOLID Principles
 
 **SOLID** is an acronym that represents five key principles, that may be applied when taking a software engineering approach to *Object-Oriented Design*. These principles are aimed at making software more maintainable, scalable, and flexible. It helps developers create code that is easier to understand, modify, and extend over time.<sup>[[Wikipedia: SOLID](https://en.wikipedia.org/wiki/SOLID)]</sup>
 
-Applied to Go, we can summarise this approach as follows:<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=1361s)] [[Go Time #16: SOLID Go Design](https://changelog.com/gotime/16)]</sup>
+**TL;DR** Applied to Go, we can summarise this approach as follows:<sup>[[Go UK 2016](https://www.youtube.com/watch?v=zzAdEt3xZ1M&t=1361s)] [[Go Time #16: SOLID Go Design](https://changelog.com/gotime/16)]</sup>
 
 *Interfaces let you apply the SOLID principles to Go programs*
 
@@ -190,18 +190,23 @@ SOLID principles provide guidelines for creating well-designed components that f
 By applying both SOLID principles and Clean Architecture, you can create software that is:
 
 **Maintainable**: 
+
 Is easier to understand, modify, and maintain over time.
 
 **Reusable**: 
+
 Encourages the creation of reusable code components that can be used in different parts of the system.
 
 **Flexible**: 
+
 Enables code that is adaptable to changing requirements, and independent of the underlying technologies.
 
 **Testable**: 
+
 Easier to write test for specific functionality. Write unit tests for individual components. Integration and end-to-end tests for groups of components, swapping out dependencies for stubs (test doubles with pre-programmed responses) and mocks (test doubles with expectations) as required 
 
 **Scalable**: 
+
 Clean Architecture is easier to optimise, new features and requirements can be implemented without negatively impacting the performance of existing code.
 
 
@@ -209,26 +214,30 @@ Clean Architecture is easier to optimise, new features and requirements can be i
 
 Consider the discussion in [Go Time #16](https://changelog.com/gotime/16):
 
-All the developers on the team are encouraged to think about errors while writing the code. *Exceptions* allow you to delay thinking about how the error will be handled.
+All the developers on the team are encouraged to think about errors while writing the code. **Exceptions** allow you to delay thinking about how the error will be handled.
 
-Error values may be compared to predefined *Sentinel Errors*, e.g. `io.EOF` or `sql.ErrNoRows`. Do this sparingly, avoid comparing errors everywhere in the code. Usually it's enough to return the error all the way up the caller stack. Wrap and unwrap error value as required.
+Error values may be compared to predefined **Sentinel errors**, e.g. `io.EOF` or `sql.ErrNoRows`. Do this sparingly, avoid comparing errors everywhere in the code. Usually it's enough to return the error all the way up the caller stack. Wrap and unwrap error value as required.
 
-Who is the error message (value) for, the *end-user or developers*? Programs shouldn't say something unless there is an error. Stack traces are useful to developers, and may be included with the error.
+**Who** is the error message (value) for, the *end-user or developers*? Programs shouldn't say something unless there is an error. Stack traces are useful to developers, and may be included with the error.
 
-*Structured logs* are not useful to the end-user, but are useful in development. RequestID (tracing) and UserID (audit) are examples where structured logging is especially useful.
+**Structured logs** are not useful to the end-user, but are useful in development. RequestID (*tracing*) and UserID (*audit logs*) are examples where structured logging is especially useful.
 
 Common Go Mistakes: [Handling an error twice](https://100go.co/#handling-an-error-twice-52). In most situations, an error should be handled only once. Logging an error is handling an error. Therefore, you have to choose between logging or returning an error. In many cases, error wrapping is the solution as it allows you to provide additional context to an error and return the source error.
 
-Don't put metrics in the logs, keep these in separate systems.
+Don't put metrics in the logs, keep these in a separate system.
 
 Common Go Mistakes: [Unnecessary nested code](https://100go.co/#unnecessary-nested-code-2). Avoid many nested levels, it causes [bad line of sight](https://www.youtube.com/watch?v=yeetIgNeIkc&t=330s), try to keep the happy path aligned on the left. If possible, make the happy return the last statement. This makes it easier to build a mental mode of the code
 
 [Don't just check errors, handle them gracefully](https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully)
-- Never inspect the output of *error.Error*
-- *Sentinel errors* become part of your public API. They create a dependency between two packages
-- An *error type* is a type that you create that implements the error interface, i.e. custom errors. Error types must be made public
-- *Opaque errors*: is when you know an error occurred, but you don't have the ability to see inside the error
+- Never inspect the output of `error.Error`
+- **Sentinel errors** become part of your public API. They create a dependency between two packages
+- An **error type** is a type that you create that implements the error interface, i.e. custom errors. Error types must be made public
+- **Opaque errors**: is when you know an error occurred, but you don't have the ability to see inside the error
 - Interactions with the world outside your process, like network activity, require that the caller investigate the nature of the error to decide if it is reasonable to retry the operation. *Assert errors for behaviour, not type*. Errors may implement the Temporary interface, then call `IsTemporary` to determine if the error could be retried
 - Add context to errors, use [pkg/errors](github.com/pkg/errors). It has methods like `Wrap`, `Cause`, and `Is`. Can be used to add a stack trace to errors
-- *Summary*: For maximum flexibility try to treat all errors as opaque. In situations where you cannot do that, assert errors for behaviour, not type or value. Minimise the number of sentinel error values
+
+**Summary**: 
+- For maximum flexibility try to treat all errors as opaque. 
+- In situations where you cannot do that, try to assert errors for behaviour, instead of type or value. 
+- Minimise the number of sentinel error values
 
