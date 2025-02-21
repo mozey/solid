@@ -7,7 +7,7 @@ Index
 - O [Open/Closed Principle (OCP)](https://github.com/mozey/solid?tab=readme-ov-file#o---openclosed-principle-ocp)
 - L [Liskov Substitution Principle (LSP)](https://github.com/mozey/solid?tab=readme-ov-file#l---liskov-substitution-principle-lsp)
 - I [Interface Segregation Principle (ISP)](https://github.com/mozey/solid?tab=readme-ov-file#i---interface-segregation-principle-isp)
-- D [Dependency Inversion Principle (DIP)](https://github.com/mozey/solid?tab=readme-ov-file#i---interface-segregation-principle-isp)
+- D [Dependency Inversion Principle (DIP)](https://github.com/mozey/solid?tab=readme-ov-file#d---dependency-inversion-principle-dip)
 
 [Origins of SOLID, DDD, and Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)
 - Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=130s)]</sup>
