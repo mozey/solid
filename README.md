@@ -2,6 +2,13 @@
 
 SOLID principles applied to Go with examples.
 
+Index
+- S [Single Responsibility Principle (SRP)](https://github.com/mozey/solid?tab=readme-ov-file#s---single-responsibility-principle-srp)
+- O [Open/Closed Principle (OCP)](https://github.com/mozey/solid?tab=readme-ov-file#o---openclosed-principle-ocp)
+- L [Liskov Substitution Principle (LSP)](https://github.com/mozey/solid?tab=readme-ov-file#l---liskov-substitution-principle-lsp)
+- I [Interface Segregation Principle (ISP)](https://github.com/mozey/solid?tab=readme-ov-file#i---interface-segregation-principle-isp)
+- D [Dependency Inversion Principle (DIP)](https://github.com/mozey/solid?tab=readme-ov-file#i---interface-segregation-principle-isp)
+
 [Origins of SOLID, DDD, and Software Ethics](https://web.archive.org/web/20180824134615/https://www.infoq.com/podcasts/uncle-bob-solid-ddd/)
 - Michael Feathers wrote to Bob (Robert C. Martin) and said if you rearrange the order of the design principles, it spells SOLID<sup>[[InfoQ Podcast](https://www.youtube.com/watch?v=hFtVBAxjeK0&t=130s)]</sup>
 - Clean Architecture is a way to develop software with low coupling
