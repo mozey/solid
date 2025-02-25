@@ -123,7 +123,7 @@ Objects of a derived class should be substitutable for objects of their base cla
 
 **Applied to Go**:
 - Two types are substitutable if they exhibit behaviour such that the caller is unable to tell the difference<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=618s)]</sup>
-- Types that implement same interface (implicitly) are interchangeable
+- Types that implement the same interface (implicitly) are interchangeable
 - Express dependencies between packages in terms of interfaces, not concrete types<sup>[[Go UK 2016](https://youtu.be/zzAdEt3xZ1M?si=mqvhWHYkr7Guybnd&t=1304s)]</sup>
 - Use interfaces for: *common behaviour*, *decoupling*, and *restricting behaviour*
 

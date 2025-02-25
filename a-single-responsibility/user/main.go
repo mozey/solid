@@ -88,12 +88,14 @@ func main() {
 		fmt.Println("Validation error:", err)
 		os.Exit(1)
 	}
+	fmt.Println("User is valid")
 
 	// Save the user
 	if err := repo.Save(newUser); err != nil {
 		fmt.Println("Error saving user:", err)
 		os.Exit(1)
 	}
+	fmt.Println("Saved a new user")
 
 	retrievedUser, err := repo.Get(newUser.ID)
 	if err != nil {
